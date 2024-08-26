@@ -61,3 +61,19 @@ document.getElementById('inputText').addEventListener('input', function (event) 
         warningMessage.style.color = 'black';
     }
 });
+
+document.getElementById('btnCopiar').addEventListener('click', function () {
+    const outputText = document.getElementById('outputText');
+
+    // Selecciona el texto del área de texto
+    outputText.select();
+    outputText.setSelectionRange(0, 99999); // Para móviles
+
+    // Copia el texto al portapapeles
+    try {
+        document.execCommand('copy');
+        alert('Texto copiado al portapapeles');
+    } catch (err) {
+        alert('No se pudo copiar el texto');
+    }
+});
